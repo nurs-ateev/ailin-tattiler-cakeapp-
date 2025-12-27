@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>История заказов - Вкусняшки</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a2632",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-display antialiased min-h-screen pb-24 selection:bg-primary selection:text-white">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full active:bg-slate-200 dark:active:bg-slate-800 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">История заказов</h2>
+</div>
+</div>
+<!-- Segmented Control -->
+<div class="px-4 py-4">
+<div class="flex h-10 w-full items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full flex-1 items-center justify-center overflow-hidden rounded-md transition-all duration-200 has-[:checked]:bg-white dark:has-[:checked]:bg-surface-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-bold leading-normal">
+<span class="truncate">Текущие</span>
+<input checked="" class="invisible w-0 absolute" name="order-type" type="radio" value="current"/>
+</label>
+<label class="flex cursor-pointer h-full flex-1 items-center justify-center overflow-hidden rounded-md transition-all duration-200 has-[:checked]:bg-white dark:has-[:checked]:bg-surface-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-slate-400 text-sm font-bold leading-normal">
+<span class="truncate">История</span>
+<input class="invisible w-0 absolute" name="order-type" type="radio" value="history"/>
+</label>
+</div>
+</div>
+<!-- Active Orders Section -->
+<div class="flex flex-col gap-4 px-4 mb-6">
+<div class="flex items-center justify-between">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Активный заказ</h3>
+</div>
+<!-- Active Order Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-800">
+<!-- Header with Status -->
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-primary text-sm font-bold uppercase tracking-wide mb-1">В пути</p>
+<h4 class="text-slate-900 dark:text-white text-lg font-bold">Заказ #5592</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Прибудет через ~15 мин</p>
+</div>
+<div class="w-16 h-16 rounded-lg bg-slate-100 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Fresh pepperoni pizza slice with cheese" class="w-full h-full object-cover" data-alt="Close up of a pepperoni pizza slice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmwWLUSLutTPRyTweLbc-jCZofQj9SmyXqRFvoQ9bAtfKAigorul-YdKZ3pnwkRpQ68CbCT2-cRGOTwXI7npTpNd-Gaj4g4zWQ7XfDWMMtKugWpLSHRL6dgt3LDxWZIT05Y7qr-TQrwgBHICxCgnyVOXCnAMu8BGHm5WDUaKrrnIH7s7yO2HlSX2_JR7BirFS2AfXrzcmrawzpPOteJbrpbAkcol2r27QoMWMWFJWh5AVsnoykVsPqJwuymWC_EshtaphIPJGAlBk"/>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-2 mb-5">
+<div class="flex justify-between text-xs font-medium text-slate-500 dark:text-slate-400">
+<span>Готовим</span>
+<span class="text-primary">В пути</span>
+<span>Доставлен</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full relative" style="width: 65%;">
+<div class="absolute right-0 top-0 bottom-0 w-2 bg-white/30 animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex-1 h-10 flex items-center justify-center rounded-lg bg-primary text-white text-sm font-bold active:bg-blue-600 transition-colors gap-2">
+<span class="material-symbols-outlined text-[20px]">map</span>
+                    Отследить
+                </button>
+<button class="size-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white active:bg-slate-200 dark:active:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Past Orders Section -->
+<div class="flex flex-col gap-4 px-4">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold leading-tight pt-2">Прошлые заказы</h3>
+<!-- Past Order Card 1 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-800 transition-transform active:scale-[0.99] duration-100">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<span class="text-xs text-slate-400 dark:text-slate-500 font-medium">20 Окт, 14:30</span>
+<span class="text-base font-bold text-slate-900 dark:text-white">Вкусняшки на Ленина</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold">
+                    Доставлен
+                </div>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Healthy green salad bowl with dressing" class="w-full h-full object-cover opacity-90" data-alt="Healthy salad bowl top view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIIGQK6lVkCTlhbRozMRMI2x3ecsJfrcdoyNqQxF_OVHbKYlUUcfC5SJYNnllokT6VS6TmjyMGCp4D3TopB70SCcRb7lteOqDmpQWnoXAsNzmgiCgNvUvFjy9LLV6oPr3nDgQia98L4Ec7gqR5mnK1MP2JpnVLQsIGizYMKfh6apZ2rGjIl-wRkF2M7RwxNZKAD516CYads0deBM0pvSTJeqrYIUEIqOG4cjuFggERiSiB7hxLoSSycdvMONj-QwNWNLH5k1wMtR4"/>
+</div>
+<div class="flex-1">
+<p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+                        Салат Цезарь с курицей, Лимонад домашний, Чизкейк Нью-Йорк
+                    </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-base font-bold text-slate-900 dark:text-white">1 250 ₽</span>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-primary text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                    Повторить
+                </button>
+</div>
+</div>
+<!-- Past Order Card 2 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-800 transition-transform active:scale-[0.99] duration-100">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<span class="text-xs text-slate-400 dark:text-slate-500 font-medium">15 Окт, 19:15</span>
+<span class="text-base font-bold text-slate-900 dark:text-white">Вкусняшки Центр</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold">
+                    Отменен
+                </div>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Classic margarita pizza on wooden board" class="w-full h-full object-cover opacity-90" data-alt="Margarita pizza top view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHBapwTgyNJ-YrENv9bJAi8PGOdsN_Aj-04vI5cS_x5bEfjdZSF1DRQ9E_uAXlj4J9X5_hYxsUTk8dG7jBUH0WL5YZbLEvKi4NY06T26ScA64GcmQxkwxI3XSAQ-fDmw4MwaJIrnq-2-eoCe4GWg1pvlQCysNpPOXPe2qPpvct24EpgrDP-HERaSQHGSH7LD3axZwqdarc5hZEfGZ9r5F2kRN4bFlTtUgR8lMgdffIvqVEixK7RgFpuLfPFgAuR6VSNaoeDihCeF4"/>
+</div>
+<div class="flex-1">
+<p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+                        Пицца Маргарита (30см), Сок Апельсиновый 1л
+                    </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-base font-bold text-slate-900 dark:text-white">890 ₽</span>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-primary text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                    Повторить
+                </button>
+</div>
+</div>
+<!-- Past Order Card 3 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-800 transition-transform active:scale-[0.99] duration-100">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<span class="text-xs text-slate-400 dark:text-slate-500 font-medium">10 Окт, 12:05</span>
+<span class="text-base font-bold text-slate-900 dark:text-white">Вкусняшки на Ленина</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold">
+                    Доставлен
+                </div>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Beef burger with cheese and lettuce" class="w-full h-full object-cover opacity-90" data-alt="Juicy beef burger close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNlNdxS81hG3NIm2eJ4tyqlAb-f4IfXkwYwTRpxWwfG4VApzJZnhev0h80jD4Bn8ppHzUBTtZDlqbTfUSdN-XcnY3jx2f7EPfyP42T-Vw4gZj-NMCXDyrKo-PAcXTU4fG8LLtmSNylPV90zFLhkSP6d1kNV2fgkNMypVFTKuklQFmBa_Bq-5DMuTUQj8-uF1QnZQhZETt9OjkUh-EKdETdkU_pXHflXCzxfB0C0pg8UCFLVy_v-Jqb2cdMjjGN6iVHSyuYKjhr9OY"/>
+</div>
+<div class="flex-1">
+<p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+                        Бургер "Шеф", Картофель фри, Сырный соус
+                    </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-base font-bold text-slate-900 dark:text-white">650 ₽</span>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-primary text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+                    Повторить
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-light dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-6 z-30">
+<div class="flex justify-between items-end pb-4">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">restaurant_menu</span>
+<span class="text-[10px] font-medium">Меню</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">shopping_bag</span>
+<!-- Badge -->
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white ring-2 ring-white dark:ring-surface-dark">2</span>
+</div>
+<span class="text-[10px] font-medium">Корзина</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1 group-hover:scale-110 transition-transform">receipt_long</span>
+<span class="text-[10px] font-medium">Заказы</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">person</span>
+<span class="text-[10px] font-medium">Профиль</span>
+</a>
+</div>
+</div>
+</body></html>

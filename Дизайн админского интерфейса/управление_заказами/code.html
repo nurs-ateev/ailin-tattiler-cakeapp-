@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Управление заказами - Вкусняшки</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-dark": "#0b5db0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c2936",
+                        "text-primary-light": "#0d141b",
+                        "text-primary-dark": "#e7edf3",
+                        "text-secondary-light": "#4c739a",
+                        "text-secondary-dark": "#8da3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-text-primary-light dark:text-text-primary-dark transition-colors duration-200">
+<div class="relative flex flex-col w-full h-full max-w-md mx-auto min-h-screen bg-background-light dark:bg-background-dark pb-20">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 bg-background-light dark:bg-background-dark px-4 py-3 pb-2 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+<h1 class="text-xl font-bold leading-tight tracking-[-0.015em] flex-1">Управление заказами</h1>
+<button class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-text-primary-light dark:text-text-primary-dark">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+</header>
+<!-- Search Bar -->
+<div class="px-4 py-3 sticky top-[60px] z-10 bg-background-light dark:bg-background-dark">
+<div class="flex w-full items-center rounded-xl bg-white dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-slate-700 h-12 overflow-hidden transition-all focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary">
+<div class="flex items-center justify-center pl-4 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-text-primary-light dark:text-text-primary-dark placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 py-2 text-base font-medium" placeholder="Поиск по номеру или имени..." type="text"/>
+</div>
+</div>
+<!-- Segmented Control -->
+<div class="px-4 pb-4">
+<div class="flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl relative">
+<div class="w-1/2 h-full absolute left-1 top-1 bg-white dark:bg-surface-dark rounded-lg shadow-sm transition-all duration-300 transform translate-x-0"></div> <!-- Active indicator visual approximation for static HTML -->
+<button class="flex-1 relative z-10 py-2 text-sm font-bold text-primary dark:text-primary text-center rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] bg-white dark:bg-surface-dark">
+                    Активные
+                </button>
+<button class="flex-1 relative z-10 py-2 text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark text-center rounded-lg hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">
+                    История
+                </button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 px-4 pb-4 overflow-x-auto hide-scrollbar">
+<button class="shrink-0 h-9 px-4 rounded-full bg-primary text-white text-sm font-medium shadow-md shadow-primary/25 transition-transform active:scale-95">
+                Все
+            </button>
+<button class="shrink-0 h-9 px-4 rounded-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-text-primary-light dark:text-text-primary-dark text-sm font-medium whitespace-nowrap hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                Принят <span class="ml-1 text-xs text-text-secondary-light dark:text-text-secondary-dark">4</span>
+</button>
+<button class="shrink-0 h-9 px-4 rounded-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-text-primary-light dark:text-text-primary-dark text-sm font-medium whitespace-nowrap hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                Готовится <span class="ml-1 text-xs text-text-secondary-light dark:text-text-secondary-dark">2</span>
+</button>
+<button class="shrink-0 h-9 px-4 rounded-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-text-primary-light dark:text-text-primary-dark text-sm font-medium whitespace-nowrap hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                Доставляется <span class="ml-1 text-xs text-text-secondary-light dark:text-text-secondary-dark">1</span>
+</button>
+</div>
+<!-- Orders List -->
+<div class="flex flex-col gap-4 px-4 pb-6">
+<!-- Order Card 1: Cooking -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden active:scale-[0.99] transition-transform duration-200">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined text-[20px]">skillet</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-text-primary-light dark:text-text-primary-dark">Заказ #1024</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium">14:30 • 15 мин назад</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                            Готовится
+                        </span>
+</div>
+<div class="flex gap-3 mb-3 pl-[52px]">
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden bg-cover bg-center shrink-0" data-alt="Portrait of a smiling man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJta6N61mrtTPuQ0SixItmiLbwlWM4-f-cdoKX4n2_URJ1oZo4kWdxk-JT7dMVNmwcVsJ9DWrQ4IdVKzNXPwM0nT17L5zGuEKXoO4YhO5BVoZSrztaVEsw8Hmby_Dseq884PQR-vbleT5B5TZlc7AF7USUs2kFPSkxcHYL3A-q-DwEK20fi68nLcM4XWlhNNx_2Ek_fWrWUJc6l31P5JXPoQuD1uMepZoZTCH4HtHCrgxR5tr-5emGwzFkmej79jTlhAEaoiA_3cA');">
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark">Иван Иванов</span>
+<span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">+7 900 123-45-67</span>
+</div>
+<button class="ml-auto h-8 w-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-primary dark:text-primary-dark">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</div>
+<div class="pl-[52px]">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-1 mb-3">
+                            2x Пицца Пепперони, 1x Кола 0.5л, 1x Картофель фри
+                        </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">1 250 ₽</span>
+<button class="flex items-center gap-1 text-sm font-bold text-primary dark:text-blue-400 hover:opacity-80">
+                                Детали
+                                <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 2: New/Accepted -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden active:scale-[0.99] transition-transform duration-200">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-text-primary-light dark:text-text-primary-dark">Заказ #1025</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium">14:42 • 2 мин назад</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold">
+                            Принят
+                        </span>
+</div>
+<div class="flex gap-3 mb-3 pl-[52px]">
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden bg-cover bg-center shrink-0" data-alt="Portrait of a smiling woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcgxevV-G_xSqIrbacklMxjaUGlKkInZjHByLFkVkX0o9b3mBSM3rlD-lz7aedlXDMOqRSYAqShg_L04zvkc7Kdtybo3N_Zj9PUtiqhzRyDtZkYstUHObmp49DhygAm2n2HXXLVFtgvOwIJc642Nj3cMEnXojQubPwi7VzcdWN-9grzBXmbeqE37aYpnkcdhIqDtktAt3ZTj6BddmVyM00Nd5rlrTR_PpPoviVzP-jdF39EuyXF_oqphFcax4vGYhZqIy93ptdtnw');">
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark">Анна Смирнова</span>
+<span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">+7 925 555-01-02</span>
+</div>
+<button class="ml-auto h-8 w-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-primary dark:text-primary-dark">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</div>
+<div class="pl-[52px]">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-1 mb-3">
+                            1x Суши сет "Филадельфия", 2x Соевый соус
+                        </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">1 800 ₽</span>
+<button class="flex items-center justify-center px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-bold rounded-lg shadow-sm shadow-primary/30 transition-colors w-full ml-4 max-w-[140px]">
+                                В готовку
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 3: Delivering -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden active:scale-[0.99] transition-transform duration-200">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined text-[20px]">delivery_dining</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-text-primary-light dark:text-text-primary-dark">Заказ #1021</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium">13:15 • 1ч 15м назад</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-bold">
+                            Доставляется
+                        </span>
+</div>
+<div class="pl-[52px]">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-1 mb-3">
+                            3x Бургер "Классик", 1x Луковые кольца
+                        </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">1 450 ₽</span>
+<span class="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 font-medium">Оплачен</span>
+</div>
+<button class="flex items-center gap-1 text-sm font-bold text-primary dark:text-blue-400 hover:opacity-80">
+                                Карта
+                                <span class="material-symbols-outlined text-[18px]">map</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 4: New/Accepted (Large order) -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden active:scale-[0.99] transition-transform duration-200">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-text-primary-light dark:text-text-primary-dark">Заказ #1020</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium">13:10 • 1ч 20м назад</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold">
+                            Принят
+                        </span>
+</div>
+<div class="flex gap-3 mb-3 pl-[52px]">
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden bg-cover bg-center shrink-0" data-alt="Portrait of a smiling man with glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBECyV5MpEtov4DPpbXE3bx3E48aotLBkEk1rRpCx2Q4jyrTypSlrSfcb9vIEcRv_84dUTHPODkdhMW95Qx71AdtP9sZ6F1ACpklRrAluQgso-ShF1wB6BkXXc1JFA3GrVeaKEan94vcUWPvHuOvEArdX9eaSIqURxQ04xrp_9kM33fWXh9DKf1Vr-QFOJ_jgCIV2tQOY2ss8LrGx_acPpSopwivV1yjdubi5Tui_UvUDV6hR4QVjy4LszMcrlXUAPDnnQkX9PrOHw');">
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark">Дмитрий Козлов</span>
+<span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">+7 999 888-77-66</span>
+</div>
+<button class="ml-auto h-8 w-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-primary dark:text-primary-dark">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</button>
+</div>
+<div class="pl-[52px]">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-1 mb-3">
+                            Корпоративный сет: 5x Пицца, 10x Напитки...
+                        </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="text-lg font-bold text-text-primary-light dark:text-text-primary-dark">5 400 ₽</span>
+<button class="flex items-center justify-center px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-bold rounded-lg shadow-sm shadow-primary/30 transition-colors w-full ml-4 max-w-[140px]">
+                                В готовку
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full max-w-md bg-white dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 pb-safe z-50">
+<div class="flex justify-around items-center h-16 pb-2">
+<button class="flex flex-col items-center justify-center w-full h-full text-primary dark:text-primary">
+<span class="material-symbols-outlined text-[24px]">list_alt</span>
+<span class="text-[10px] font-bold mt-1">Заказы</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+<span class="text-[10px] font-medium mt-1">Меню</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">group</span>
+<span class="text-[10px] font-medium mt-1">Клиенты</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">bar_chart</span>
+<span class="text-[10px] font-medium mt-1">Отчеты</span>
+</button>
+</div>
+</nav>
+<!-- Safe area padding for bottom nav -->
+<div class="h-20"></div>
+</div>
+</body></html>

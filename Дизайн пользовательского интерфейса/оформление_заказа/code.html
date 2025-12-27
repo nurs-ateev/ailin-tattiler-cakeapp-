@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Оформление заказа - Вкусняшки</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar hide for horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden pb-32">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center p-4 pb-2 justify-between">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">arrow_back_ios_new</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Оформление заказа</h2>
+</div>
+<!-- Page Indicators -->
+<div class="flex w-full flex-row items-center justify-center gap-2 py-3">
+<div class="h-1.5 w-8 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex flex-col gap-6 px-4 py-6 max-w-md mx-auto w-full">
+<!-- Delivery Section -->
+<section class="flex flex-col gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Куда везем?</h2>
+<!-- Map Card -->
+<div class="relative w-full h-32 rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Minimalist street map view showing delivery area" data-location="Moscow" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAToKDsil2LsMePAYCaGbtHrNBLbA9dqZnUvoCEtyYSt4bDLnrrQkC9qVhkjVXUrzZgWppPyG7RE-OwVUoOxrBT_pDr8JtJYK2CklvTXIJV03NrIFt2pmy9AnMH_pb--Y6cp8bq8eLjIiPDCNkue3m0om8lbRVbUVAPwkPRIwUg3euu0wFbEeJL3dwX8yx53BiIweS1TSuPIxaUURQCj8KVEU5if1X-pyLnrt5sp9we32V41PDu3QO1QPeP2E0_VQGQvgZg08AGA5Q");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+<div class="absolute bottom-3 right-3 bg-white dark:bg-slate-800 p-2 rounded-full shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">my_location</span>
+</div>
+</div>
+<!-- Address Inputs -->
+<div class="flex flex-col gap-3">
+<label class="flex flex-col w-full">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1.5">Адрес</span>
+<div class="relative flex items-center">
+<input class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-3.5 pl-4 pr-10 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all outline-none" placeholder="Улица, дом, квартира" type="text" value="ул. Ленина, 10, кв 45"/>
+<span class="material-symbols-outlined absolute right-3 text-primary">location_on</span>
+</div>
+</label>
+<div class="flex gap-3">
+<label class="flex flex-col w-1/3">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1.5">Подъезд</span>
+<input class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-3.5 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="1" type="text"/>
+</label>
+<label class="flex flex-col w-1/3">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1.5">Этаж</span>
+<input class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-3.5 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="4" type="text"/>
+</label>
+<label class="flex flex-col w-1/3">
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1.5">Домофон</span>
+<input class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-3.5 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="45" type="text"/>
+</label>
+</div>
+</div>
+<!-- Delivery Time Selector -->
+<div class="flex gap-2 p-1 bg-slate-200 dark:bg-slate-800 rounded-lg">
+<button class="flex-1 py-2 px-4 rounded shadow-sm bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold text-center transition-all">Как можно скорее</button>
+<button class="flex-1 py-2 px-4 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium text-center transition-all">Ко времени</button>
+</div>
+<!-- Leave at door Toggle -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">door_front</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-medium">Оставить у двери</span>
+<span class="text-slate-500 dark:text-slate-400 text-xs">Бесконтактная доставка</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px bg-slate-200 dark:bg-slate-800 w-full"></div>
+<!-- Payment Section -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Оплата</h2>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-sm">lock</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Apple Pay Option -->
+<label class="relative flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 cursor-pointer hover:border-primary dark:hover:border-primary transition-colors group">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-10 h-6 bg-black text-white rounded">
+<span class="text-[10px] font-bold tracking-tighter">Pay</span>
+</div>
+<span class="text-slate-900 dark:text-white font-medium">Apple Pay</span>
+</div>
+<div class="flex items-center">
+<input checked="" class="h-5 w-5 border-slate-300 text-primary focus:ring-primary" name="payment" type="radio"/>
+</div>
+</label>
+<!-- Saved Card Option -->
+<label class="relative flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 cursor-pointer hover:border-primary dark:hover:border-primary transition-colors group">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-medium">Visa •••• 4242</span>
+<span class="text-slate-500 text-xs">05/26</span>
+</div>
+</div>
+<div class="flex items-center">
+<input class="h-5 w-5 border-slate-300 text-primary focus:ring-primary" name="payment" type="radio"/>
+</div>
+</label>
+<!-- Cash Option -->
+<label class="relative flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 cursor-pointer hover:border-primary dark:hover:border-primary transition-colors group">
+<div class="flex items-center gap-3">
+<div class="text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-slate-900 dark:text-white font-medium">Наличными курьеру</span>
+</div>
+<div class="flex items-center">
+<input class="h-5 w-5 border-slate-300 text-primary focus:ring-primary" name="payment" type="radio"/>
+</div>
+</label>
+<button class="flex items-center gap-2 text-primary font-medium text-sm mt-1 px-1">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                    Добавить новую карту
+                </button>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px bg-slate-200 dark:bg-slate-800 w-full"></div>
+<!-- Order Summary -->
+<section class="flex flex-col gap-4 mb-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">Ваш заказ</h2>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-400">Товары (2)</span>
+<span class="text-slate-900 dark:text-white font-medium">1 050 ₽</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-400">Доставка</span>
+<span class="text-slate-900 dark:text-white font-medium">200 ₽</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-400">Сбор сервиса</span>
+<span class="text-slate-900 dark:text-white font-medium">0 ₽</span>
+</div>
+<div class="h-px bg-slate-100 dark:bg-slate-700 w-full my-1"></div>
+<div class="flex justify-between items-center text-base font-bold">
+<span class="text-slate-900 dark:text-white">Итого</span>
+<span class="text-slate-900 dark:text-white">1 250 ₽</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer -->
+<div class="fixed bottom-0 left-0 w-full bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 p-4 pb-8 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="flex items-center justify-between max-w-md mx-auto gap-4">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">К оплате</span>
+<span class="text-xl font-bold text-slate-900 dark:text-white font-mono tracking-tight">1 250 ₽</span>
+</div>
+<button class="flex-1 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-lg shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 transition-all transform active:scale-[0.98]">
+<span>Оплатить заказ</span>
+<span class="material-symbols-outlined text-sm">lock</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "474834792192",
+    "project_id": "cake-app-ailin",
+    "storage_bucket": "cake-app-ailin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474834792192:android:6f3855f36ea6f6fb3e8de5",
+        "android_client_info": {
+          "package_name": "com.ailin_tattileri.ailin_tattileri_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE_ijSgXXgrX2FrvbQlQ1kWwJxMpODBeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

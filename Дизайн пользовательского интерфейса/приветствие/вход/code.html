@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Вкусняшки - Добро пожаловать</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee7c2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221810",
+              "text-light": "#1b130d",
+              "text-dark": "#fcfaf8",
+              "surface-light": "#ffffff",
+              "surface-dark": "#322419"
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-text-light dark:text-text-dark transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-xl bg-background-light dark:bg-background-dark">
+<!-- Hero Section -->
+<div class="relative w-full flex-grow flex flex-col">
+<!-- Background Image Container -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover object-cover" data-alt="Delicious burger with fresh vegetables and fries on a wooden table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmpu03CSkSuHeDFlZtqWQnig8FzDxEXlWvicYcesYso-VVZ_6UpvGvZH4D2gwAEPgLFpZOavI1O1SlUxDpaLGJ91won7M5rCiBIIsSR4QtEGZ12MIDHEsSQt7ZB3-6xnYJ8QgJQ5e9BKpfkNJ-I00CurHSzvyUalDrQhTeBPocZ0mbF85EXj5kmaF4Fp4mKm2zMCldqQ6qgM9TJ5XKxmArNbibaYH6HyVwQkC8V8CpIt9r4_cS-RB4fRSKrBRITl-B_QXgYWztb4Q");'>
+</div>
+<!-- Gradient Overlay for better text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-light via-background-light/40 to-transparent dark:from-background-dark dark:via-background-dark/40"></div>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 flex flex-col justify-end h-full px-6 pb-8 pt-20">
+<!-- Logo/Brand Area -->
+<div class="flex justify-center mb-6">
+<div class="bg-primary/10 backdrop-blur-sm p-4 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary !text-5xl">restaurant_menu</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="text-center mb-8">
+<h1 class="text-text-light dark:text-text-dark tracking-tight text-[32px] font-extrabold leading-tight mb-3">
+                        Вкусняшки
+                    </h1>
+<h2 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight mb-2">
+                        Мир вкуса в вашем кармане
+                    </h2>
+<p class="text-text-light/70 dark:text-text-dark/70 text-base font-medium leading-relaxed max-w-[280px] mx-auto">
+                        Заказывайте любимые блюда быстро и удобно. Доставка за 30 минут.
+                    </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 w-full">
+<!-- Primary Button: Login -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-primary hover:bg-primary/90 transition-colors text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/25">
+<span class="truncate">Войти</span>
+</button>
+<!-- Secondary Button: Register -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-surface-light dark:bg-surface-dark border-2 border-transparent hover:border-primary/20 text-text-light dark:text-text-dark text-base font-bold leading-normal tracking-[0.015em] transition-all">
+<span class="truncate">Регистрация</span>
+</button>
+<!-- Guest Access -->
+<button class="mt-2 text-primary text-sm font-semibold hover:text-primary/80 transition-colors">
+                        Продолжить как гость
+                    </button>
+</div>
+<!-- Social Login -->
+<div class="mt-8 flex flex-col items-center gap-4">
+<div class="flex items-center gap-3 w-full justify-center">
+<div class="h-px bg-gray-300 dark:bg-gray-700 w-16"></div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Или через</span>
+<div class="h-px bg-gray-300 dark:bg-gray-700 w-16"></div>
+</div>
+<div class="flex items-center gap-4">
+<button class="h-12 w-12 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm">
+<img alt="Google" class="w-5 h-5" data-alt="Google logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2ErKswPK_VZa4M8ljKTrOGrbdmDd_vDYvlhyQvO_RkBtH7XH7Gz0IX71JiuH_XS2FlAsMUk3jEaaBr1oQpDZGKF_6lsOGJZ8OgJR2_azt7-bgkKAz81kz8h8mMomw40KLi1JoDyn6JbiIPL03y_KabIcdXesoW2OJ5dDyf2_FBXZcHoM03idbN1TzYuQJYE4bk_3vMGkEzBUX3-9Giuv3HmDhN82Ccm3y_tjpEQH8sqbDwS8tgHexO-_U9xO1OUmCYYaMURKE9tM"/>
+</button>
+<button class="h-12 w-12 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm">
+<img alt="Apple" class="w-5 h-5 dark:invert" data-alt="Apple logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhwOJ7Zt9taNVPJQBu80Zt3FA1CwCZu0DKN935FBsnuSErfEfpAnit8N4Zel8_oRVFZiRLVjxnZnk_Fjs3M8Mu2g6b4tLbHs59hCshJwCQu7be2WXlkQbdNOTlItFv7NhpFyXhgRrnh-DmZnB6qMyXkeISjpMAuFR64Gq2rksO9Hj6hZB4TIqLLqDzihhwRncd2wJAwDN2Q4OrYryyuGXkSrLmJUOkYv46_G7jOagUl4gDufD50YrHCc9QBFhhOYvip2smONx302I"/>
+</button>
+<button class="h-12 w-12 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm text-[#0077FF]">
+<!-- Using a placeholder icon for VK or generic social -->
+<span class="material-symbols-outlined">language</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- iOS Safe Area Indicator -->
+<div class="h-5 w-full bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

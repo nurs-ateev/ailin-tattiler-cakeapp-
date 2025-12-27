@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "cake-app-ailin",
+          "appId": "1:474834792192:android:6f3855f36ea6f6fb3e8de5",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "cake-app-ailin",
+          "configurations": {
+            "android": "1:474834792192:android:6f3855f36ea6f6fb3e8de5",
+            "ios": "1:474834792192:ios:e062f685dc4162cd3e8de5",
+            "macos": "1:474834792192:ios:e062f685dc4162cd3e8de5",
+            "web": "1:474834792192:web:6d0ea8c907658d5f3e8de5",
+            "windows": "1:474834792192:web:083e22803ced403c3e8de5"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "codebase": "default",
+      "disallowLegacyRuntimeConfig": true,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "source": "functions"
+    }
+  ]
+}

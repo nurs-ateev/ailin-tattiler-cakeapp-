@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Вкусняшки - Главная</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 antialiased overflow-x-hidden pb-24">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm transition-colors">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex flex-col flex-1 cursor-pointer">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium ml-7">Доставка:</span>
+<div class="flex items-center gap-1 group">
+<span class="material-symbols-outlined text-primary text-[24px]">location_on</span>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors truncate max-w-[220px]">
+                        ул. Пушкина, д. 10
+                    </h2>
+<span class="material-symbols-outlined text-gray-400 text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Marketing Carousel (Horizontal) -->
+<section class="mt-2">
+<div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory px-4 pb-4 gap-4">
+<!-- Card 1 -->
+<div class="snap-start shrink-0 w-[85%] sm:w-[320px] rounded-2xl overflow-hidden relative aspect-[2/1] group shadow-md">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Delicious pizza with melting cheese close up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCayxczYr229qS8-oqFs6RJ2Z_5UqrIqMzWJs6-zR0BWjmE_Dv-Lhu0wIKXo93mtTLHH9LQKGLECduhf0RreI49s06r9hjdLhk8-1J-ZtT_jB-zC786QvLkEsA30fnGR7i3YwvNGP5n6nl7vWnpYxC_HJ2gLyNv0EYm02ZcPsfIduC5TSQh73fDxdn0iMTplBR9QIdWWqVRiapRHqIlOB_NGZTmuh9243xYRVMgU-rq4V2s5Ww7si0blXIo2DEgvG-nuYhOTEG1t-w');">
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-center p-5 text-white items-start">
+<span class="px-2.5 py-1 bg-primary text-white text-xs font-bold rounded-lg mb-2">Акция</span>
+<h3 class="text-xl font-bold leading-tight mb-1">Скидка 20% <br/>на первый заказ</h3>
+<p class="text-white/90 text-sm font-medium">Промокод: HELLO20</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-start shrink-0 w-[85%] sm:w-[320px] rounded-2xl overflow-hidden relative aspect-[2/1] group shadow-md">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Assorted sushi rolls on a dark plate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjIrJYLUkAtPdG3MnKy7aXhX55rJvZL99XTbqqQMjhwBz9gcwQfR3FxqggokCEQTIjUBO2pqNTWwqwlIlfsvJjqYPeaA7sPgMufZ0hjZjM1D6x0R8yNuktEc34YTBiSiuDpoAR1yOL4yf-vqg-4yXuKGPL_NhcjxRSWZAO9kisbBv0p2jDqAqdd4AiEOpEYm9eZya-2HZLU6TrGMerMS9fQ01-0s8BCpmg_rD_uX67B1Q5RHcdgFeTcn75sUBtXfXQUroqkyjnLZc');">
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-center p-5 text-white items-start">
+<span class="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded-lg mb-2">Ланч</span>
+<h3 class="text-xl font-bold leading-tight mb-1">Ланч-сеты <br/>от 350 ₽</h3>
+<p class="text-white/90 text-sm font-medium">По будням с 12:00</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="snap-start shrink-0 w-[85%] sm:w-[320px] rounded-2xl overflow-hidden relative aspect-[2/1] group shadow-md">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Juicy burger with fries on wooden table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7p65r8V-5NZvjZM13rHNwIPMlgCxOENu7XBBT-_0kflT86Knp0mvvtOlknvKO2v8lLmB_7hGoHxY9O_VhI1FOhfM_FM5IbSsjlsoQ8fw6SRB2Seqj1Xyne5HFElajttV6DEHopma4LYnaE4vqY1uKXXI4oPGe94-ff-V9MYphRa7ggJvfvZbHOh3KY2Tu4K1tU5eE8GN-RnXYLfvtdo5vhrPF9mkctgZMh6mj89DaYAyt9i2_65bb8oF3FTMHV4A1pXhYY3nGuTY');">
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-center p-5 text-white items-start">
+<span class="px-2.5 py-1 bg-blue-500 text-white text-xs font-bold rounded-lg mb-2">Доставка</span>
+<h3 class="text-xl font-bold leading-tight mb-1">Бесплатная <br/>доставка</h3>
+<p class="text-white/90 text-sm font-medium">От 1000 ₽</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Chips -->
+<section class="sticky top-[72px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm py-2 shadow-sm border-b border-gray-100 dark:border-gray-800">
+<div class="flex overflow-x-auto no-scrollbar gap-3 px-4">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary text-white pl-4 pr-4 transition-transform active:scale-95 shadow-lg shadow-primary/30">
+<span class="text-sm font-bold leading-normal">🔥 Всё меню</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 pl-4 pr-4 transition-transform active:scale-95">
+<span class="text-gray-900 dark:text-gray-200 text-sm font-medium leading-normal">🍕 Пицца</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 pl-4 pr-4 transition-transform active:scale-95">
+<span class="text-gray-900 dark:text-gray-200 text-sm font-medium leading-normal">🍣 Суши</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 pl-4 pr-4 transition-transform active:scale-95">
+<span class="text-gray-900 dark:text-gray-200 text-sm font-medium leading-normal">🍔 Бургеры</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 pl-4 pr-4 transition-transform active:scale-95">
+<span class="text-gray-900 dark:text-gray-200 text-sm font-medium leading-normal">🥗 Салаты</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 pl-4 pr-4 transition-transform active:scale-95">
+<span class="text-gray-900 dark:text-gray-200 text-sm font-medium leading-normal">🍰 Десерты</span>
+</button>
+</div>
+</section>
+<!-- New Arrivals Section (Horizontal Scroll) -->
+<section class="mt-4">
+<div class="flex items-center justify-between px-4 pb-2">
+<h3 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Новинки</h3>
+<a class="text-primary text-sm font-semibold hover:opacity-80" href="#">Все</a>
+</div>
+<div class="flex overflow-x-auto no-scrollbar gap-4 px-4 pb-4 snap-x snap-mandatory">
+<!-- Item 1 -->
+<div class="snap-start shrink-0 w-40 flex flex-col gap-3 group">
+<div class="relative w-full aspect-square rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Spicy burger with jalapenos and cheese" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHBuDSD8WxwOx6fJu0VnDGbPDIlzst2b25e2AzcZ4ysvbkXrj3KOY3cINGthQx8YQBozTVAv32QM_2VAiEf_J3ScxJPbPERwUqoFAtQIhcg8s_lLrRn81kv9Ksx8hKyfY5CPdvaIQc_jvI09hSy3DbE8jlV5JuMSJ9uM3JXwqT-W3bggaUET4iNjU4fyuvZ0ceojDqs5PJLDhXrOVpXFEtWYINRRRmajFGCRf4yFTmNoowu5EEdmkNkyxVTbn9ccPLPamcdw5tZlE");'>
+</div>
+<button class="absolute bottom-2 right-2 size-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div>
+<div class="flex items-baseline justify-between">
+<p class="text-primary font-bold">390 ₽</p>
+</div>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight mt-1 line-clamp-1">Острый Бургер</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal mt-0.5">320 г</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="snap-start shrink-0 w-40 flex flex-col gap-3 group">
+<div class="relative w-full aspect-square rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Fresh avocado sushi rolls" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLoq6qy693POBdiSbF8LLY54FQod8ivIl1UMzl6nPK_Zq9QiS5IFt95rgmM22ky99uxoT463gf-EcpuKzxpBjpQ9P4HZ1C7ez8DeBz2tg2wzYsADwMcmCLTv5fciZmY9dDX-bF7B2yshIud-fnlzLZt1DF3JdAZViPXLwqca9TMwMo4qWsWKhhIuTjNPdNomnhDng5-_Y2Umy2wHFe5n8UD9ebZWow3BmYzQUHJ17skluAzwna-CE7mSqh0s-oJP3EEkb_LSLTMNQ");'>
+</div>
+<button class="absolute bottom-2 right-2 size-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div>
+<div class="flex items-baseline justify-between">
+<p class="text-primary font-bold">280 ₽</p>
+</div>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight mt-1 line-clamp-1">Ролл Авокадо</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal mt-0.5">180 г</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="snap-start shrink-0 w-40 flex flex-col gap-3 group">
+<div class="relative w-full aspect-square rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Berry tart dessert with powdered sugar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBj4mhFqA4jab3_mIISlqIyW5AxME34IO_re4SJiagsxiXJ-4-7r1r0aOlTzhn153FHckSScZmA-SqkUMxqBd1yuyXnnOGXnL8gWNbxvx-QuqF5vtAdX0Q-pb4Jw_L3sXKhR88QC5iqaN8PBCHBjO9huiewDu7Sx16ypgnb2l_CYtTvdnPIjq5GCwSkb81nqIIE7Pp2T5RPP8R_hKgubJJvDv5jG0sW8GFtmqxy1Vz9ig6ja12fi36GzrxSyPGI1xucgUKkqLPZ_1Q");'>
+</div>
+<button class="absolute bottom-2 right-2 size-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div>
+<div class="flex items-baseline justify-between">
+<p class="text-primary font-bold">150 ₽</p>
+</div>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight mt-1 line-clamp-1">Ягодный Тарт</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal mt-0.5">120 г</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="snap-start shrink-0 w-40 flex flex-col gap-3 group">
+<div class="relative w-full aspect-square rounded-2xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Refreshing citrus lemonade in a glass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtvoUh2vbyTBvPb7KZFXOjB2UyiCPQZqDgLN7WAxutlYeBSQNwLg5_g9ifzFCR83YVqf6FztngYcjWuZsouyPmTiQBpnLZk2UzAoYfo7TPj4W1zEVWploLRX-KmaISh2_jly4mLfLJW51oWV6p3J7YjrXhfv-5wO8n73tCfHypYa2X06ifNP8H7EK7nfGqcls07uuvcsvqMDme9QOhjkXVpqGgYb-Q8qS8RVJaYOgq26vbVcbA2v_W09Mj5pYIxa6EnzPI3lDALKI");'>
+</div>
+<button class="absolute bottom-2 right-2 size-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div>
+<div class="flex items-baseline justify-between">
+<p class="text-primary font-bold">120 ₽</p>
+</div>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-tight mt-1 line-clamp-1">Лимонад</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal mt-0.5">300 мл</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular/Main Menu List -->
+<section class="mt-4 px-4 pb-20">
+<h3 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight mb-4">Популярное</h3>
+<div class="grid grid-cols-1 gap-4">
+<!-- Product Card Full Width -->
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-3 flex gap-4 shadow-sm border border-gray-100 dark:border-gray-700/50">
+<div class="w-28 h-28 shrink-0 rounded-xl bg-gray-100 dark:bg-gray-700 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Pepperoni pizza with basil leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbkWWx9jxHm16KzqDJc8o3sH2MLfZ-mLyj-8AGH3HxjPbxdH6YWjVWgv2vnSqiYmmmo3yug53ltPUyrr1yFet6FjgE5uRnS5N_fagMiAYXmP9dilDzfSCH0eVDVJ8hsy47ipRbxxo-aK2-JynmwoWO-qou6Qkx8_-lcuZDO0hXTMUen0pPOKKUov0nUsYf2eUMJPWrh8k11UavqEazWSb80r1M3yneDoLXg4wuDgPl76_IFGa63J4FFE75-1RATS2c7BfSGNTZIOk");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<h4 class="text-gray-900 dark:text-white text-base font-bold leading-snug">Пепперони</h4>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Пикантная пепперони, моцарелла, томатный соус, орегано.</p>
+</div>
+<div class="flex items-center justify-between mt-3">
+<span class="text-gray-900 dark:text-white font-bold text-lg">450 ₽</span>
+<button class="flex items-center justify-center h-9 px-4 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-xl text-sm font-bold transition-all active:scale-95">
+                            В корзину
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card Full Width -->
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-3 flex gap-4 shadow-sm border border-gray-100 dark:border-gray-700/50">
+<div class="w-28 h-28 shrink-0 rounded-xl bg-gray-100 dark:bg-gray-700 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Philadelphia sushi rolls on wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlYxfxELz3_D5ik32wgU1q_qc3y7OrS0Hj7sIHeL1i6ChuOUvpg8yHOylApOfKpNrOSDS6EZp1ZJDqgUzWd8W7g74dUL5fdho8XcNb8V5T-uGu6RaFRtGyF0S4wcfwaxTN327K1EyIqTY7H6DPe1pEVo0eOG0nNwynYH54mOVhkFgJG8a_JweRZbWhLSD1dl4hqK_eqY2beXFvbVLM3OoFQBh0PqQBzi_hoat6PqAFrDdoA7LtxpBbu8ihKPoSbs0IL3wo2ORxrw4");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<h4 class="text-gray-900 dark:text-white text-base font-bold leading-snug">Филадельфия</h4>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Лосось, сливочный сыр, огурец, авокадо, рис.</p>
+</div>
+<div class="flex items-center justify-between mt-3">
+<span class="text-gray-900 dark:text-white font-bold text-lg">550 ₽</span>
+<button class="flex items-center justify-center h-9 px-4 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-xl text-sm font-bold transition-all active:scale-95">
+                            В корзину
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card Full Width -->
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-3 flex gap-4 shadow-sm border border-gray-100 dark:border-gray-700/50">
+<div class="w-28 h-28 shrink-0 rounded-xl bg-gray-100 dark:bg-gray-700 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Caesar salad in a bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQaUGRcA3kx10NoghB4H2e9YniOAoKHJXuO_oDxdi_33IuKzlIAbFmuxjHbQN6TH7pwR1G6wuCANLIm8d1s6vZcd1c-Mk_5p2cUSfHpALxib6qsiMY5T4cv9DfxYgxKyxZD87l1QJjHYX1UJUcAVfG9TYa8YfxT5jC-tR5n6C99MEqe5P5K95wY-xrAkBQdwCsAINyPMu9zOySeyp0Ezffb9eOouG6wH8ybpYxLfVzzPijxs90v8I8o9E5FkR7M7aVS70teejMr0o");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<h4 class="text-gray-900 dark:text-white text-base font-bold leading-snug">Цезарь с курицей</h4>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Куриное филе, салат айсберг, сухарики, пармезан, соус цезарь.</p>
+</div>
+<div class="flex items-center justify-between mt-3">
+<span class="text-gray-900 dark:text-white font-bold text-lg">390 ₽</span>
+<button class="flex items-center justify-center h-9 px-4 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-xl text-sm font-bold transition-all active:scale-95">
+                            В корзину
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card Full Width -->
+<div class="bg-white dark:bg-gray-800 rounded-2xl p-3 flex gap-4 shadow-sm border border-gray-100 dark:border-gray-700/50">
+<div class="w-28 h-28 shrink-0 rounded-xl bg-gray-100 dark:bg-gray-700 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Pasta carbonara with cheese" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYNLIEGJrdJnueo3iox2JHplE1GTUev6YgrB10Cwm54a6kmFpA_SsD11FJf_jeF5152Ar21VkQnf1zrTfFvMy-MOGLdu9TCb9lFfUA71E46zZ5VAUIhniHnpoABzuo-EuVb58zQq_Ge0m6BRgC1bZl2d5xPsUmkCecdXJPhP9NgL2bGeAo6db40cYsCr9phh-lBWYqI26ClDSITIgcDHMwRyVGaG2sOHxPpgTydwGt-8PrNeTsTGm1Ue8Kb8E2p_5P7jHWPv0rz2Q");'>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<h4 class="text-gray-900 dark:text-white text-base font-bold leading-snug">Паста Карбонара</h4>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Спагетти, бекон, сливки, яичный желток, пармезан.</p>
+</div>
+<div class="flex items-center justify-between mt-3">
+<span class="text-gray-900 dark:text-white font-bold text-lg">420 ₽</span>
+<button class="flex items-center justify-center h-9 px-4 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-xl text-sm font-bold transition-all active:scale-95">
+                            В корзину
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Action Button (Cart) -->
+<div class="fixed bottom-24 left-4 right-4 z-40 pointer-events-none flex justify-center">
+<button class="pointer-events-auto w-full max-w-md bg-primary text-white h-14 rounded-2xl shadow-xl shadow-primary/40 flex items-center justify-between px-6 transform transition-all hover:scale-[1.02] active:scale-95">
+<div class="flex items-center gap-3">
+<div class="bg-white/20 rounded-full size-8 flex items-center justify-center text-xs font-bold">2</div>
+<span class="font-bold">В корзине</span>
+</div>
+<span class="font-bold text-lg">1 280 ₽</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 pb-safe pt-2 px-2">
+<div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 w-16 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] filled">home</span>
+<span class="text-[10px] font-medium">Главная</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+<span class="text-[10px] font-medium">Избранное</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="text-[10px] font-medium">Заказы</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium">Профиль</span>
+</a>
+</div>
+<!-- Safe area spacer for iPhone X+ -->
+<div class="h-[env(safe-area-inset-bottom)] w-full"></div>
+</nav>
+<script>
+        // Simple fix for safe area on bottom if needed, though Tailwind pb-safe usually helps if plugin is active, 
+        // manual padding added to nav for safety.
+    </script>
+</body></html>

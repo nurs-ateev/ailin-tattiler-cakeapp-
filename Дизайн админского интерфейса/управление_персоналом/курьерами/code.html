@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Управление курьерами - Вкусняшки</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-20">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800 transition-colors">
+<div class="flex size-12 shrink-0 items-center justify-start text-slate-900 dark:text-white">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Курьеры</h2>
+<div class="flex size-12 items-center justify-end">
+<span class="material-symbols-outlined text-primary cursor-pointer">tune</span>
+</div>
+</div>
+<!-- Map Section -->
+<div class="flex px-4 py-3 relative z-0">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 group">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="Interactive city map showing streets and delivery zones" data-location="Saint Petersburg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFTmaPfk6r-j3okSED7HN2edRf9m0-RJHwNFModH9nHVLScSwBvY7Z6z3hL5209kjJYjUkJ_OvJEib9_AwqpGmDDtrukEByaR6tIcVqCW1jSiw9af-Z-suXqjhXqrL2_ToHpvCrKCyh0uo4Um8RDQ2cQZtc25hYPO9J_8ne3_aqrQn5oVG7TgxJgARYl7xXW1nw-FSuWPfwe3WicH-MS71ipR9psGfKOAYqcXkJHOcrfXMwLOvR-Dt9hdZuUwULvYjOn1C_c1BSvs");'>
+</div>
+<!-- Map Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+<!-- Map Floating Info -->
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-sm">
+<p class="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">near_me</span>
+                            8 активных
+                        </p>
+</div>
+</div>
+<!-- Floating Expand Button -->
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 p-2 rounded-full shadow-md cursor-pointer hover:bg-white dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-200 text-sm block">fullscreen</span>
+</div>
+</div>
+</div>
+<!-- Headline -->
+<div class="px-4 pb-2 pt-2 flex justify-between items-end">
+<h2 class="text-slate-900 dark:text-white tracking-tight text-[22px] font-bold leading-tight">Статус команды</h2>
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Сегодня, 14:30</span>
+</div>
+<!-- Chips (Status Filter) -->
+<div class="flex gap-3 p-3 px-4 overflow-x-auto no-scrollbar pb-4">
+<!-- Active Chip -->
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4 shadow-md shadow-primary/20 cursor-pointer transition-transform active:scale-95">
+<p class="text-white text-sm font-bold leading-normal">Все</p>
+</div>
+<!-- Inactive Chip -->
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Свободные</p>
+</div>
+<!-- Inactive Chip -->
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Занятые</p>
+</div>
+<!-- Inactive Chip -->
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<div class="w-2 h-2 rounded-full bg-slate-400"></div>
+<p class="text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal">Офлайн</p>
+</div>
+</div>
+<!-- Couriers List -->
+<div class="flex flex-col gap-2">
+<!-- List Item: Free -->
+<div class="group mx-4 flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all hover:shadow-md">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 ring-2 ring-white dark:ring-slate-700" data-alt="Portrait of courier Alexey" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj-B4wpzOWCPrKHG5SiHVKCtpHCbbAsvsVWGzDbqoUU1A_pQ4sPQmlYR31Q5I07xB6KzUUbwEKFz7RCHgyxdvLFw-qsv7kKsv3AITxx2l0Ag66qK9zIc4VBliAEhW--M7Hc3QHHs3sBw_wbjM9hwyGOFrJCiHV6hDB-mr9yG5Sd7cDGKN0DNfnzmnjUk72is_mjfH1bOSYtaepi5-qSncsFKCe6026foDjbS45gVLgYKjeDwy5awPebaNblMc4wRtn4lj48K5QnEM");'>
+</div>
+<div class="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-slate-800"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Алексей Смирнов</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                1.2 км • Центр
+                            </p>
+</div>
+</div>
+<div class="shrink-0 flex gap-2">
+<button class="flex size-9 cursor-pointer items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
+<span>Выполнено: <strong class="text-slate-900 dark:text-white">12</strong></span>
+<span>Рейтинг: <strong class="text-slate-900 dark:text-white">4.9</strong></span>
+</div>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold leading-normal shadow-sm shadow-primary/30 active:scale-95 transition-transform hover:bg-primary/90">
+                        Назначить
+                    </button>
+</div>
+</div>
+<!-- List Item: Busy -->
+<div class="group mx-4 flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all hover:shadow-md">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 ring-2 ring-white dark:ring-slate-700" data-alt="Portrait of courier Maria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCE1FfSZGoDpUP61es9MWqTh4Sek9i1ovyvjMtB0BHrFIiJpa3WcLfZnYYP-kn0_AVqgOT4n5yoMs51NTaKMR7rdSOXd5Fuyz9KtQQcrFv_1zwR3waxZ6wSoqMa2rXsgNgN8naB3JmZl5p6Wt7p4-PTuAGabAT-c6SRPYUriUhVvwYs1Dgd7nsjZiLS3s0FqckrE7SazIQFO_pJHuHz2AMHBO8MkbWfZ-wwSGsL7HxXPPNLHC-c9BTsWwLRS0MHh2ChETnCAPBMhNE");'>
+</div>
+<div class="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-amber-500 ring-2 ring-white dark:ring-slate-800"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Мария Иванова</p>
+<p class="text-amber-600 dark:text-amber-400 text-sm font-medium leading-normal line-clamp-1">
+                                Везет заказ #4821
+                            </p>
+</div>
+</div>
+<div class="shrink-0 flex gap-2">
+<button class="flex size-9 cursor-pointer items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</button>
+</div>
+</div>
+<!-- Progress bar for delivery -->
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+<div class="bg-amber-500 h-1.5 rounded-full" style="width: 70%"></div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-slate-500 dark:text-slate-400">Доставка через ~15 мин</span>
+<button class="text-primary font-bold hover:underline">Детали</button>
+</div>
+</div>
+<!-- List Item: Free -->
+<div class="group mx-4 flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700/50 transition-all hover:shadow-md">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 ring-2 ring-white dark:ring-slate-700" data-alt="Portrait of courier Dmitry" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-odzDoaiG7PjxRsabTxIYiN6b7m0N42MdIh0lKzFtXw4Y4e3nqzV-LUeMHXFeQlr7-_C-LyJ2Sz4Aod6ryyxChtuM_zNwDVxlikBApPIfU4gmNbY3WVcoHvmPnQnaUAQRjK0tv6LRMvbe9ZYeGYLw7xl7bKatDcWsA-BiY1MzVn3cnMR1UHjf4LjZ-gFtaeQasowsSrpsX0d9cn04rm7blMekiqHieFnScjn2atVJgId3hR3XMSDqR9-fwvIxH3gUTapHyLACbnA");'>
+</div>
+<div class="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-slate-800"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal line-clamp-1">Дмитрий Петров</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                0.5 км • Склад
+                            </p>
+</div>
+</div>
+<div class="shrink-0 flex gap-2">
+<button class="flex size-9 cursor-pointer items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-xs font-medium text-slate-500 dark:text-slate-400">
+<span>Выполнено: <strong class="text-slate-900 dark:text-white">8</strong></span>
+<span>Рейтинг: <strong class="text-slate-900 dark:text-white">4.7</strong></span>
+</div>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold leading-normal shadow-sm shadow-primary/30 active:scale-95 transition-transform hover:bg-primary/90">
+                        Назначить
+                    </button>
+</div>
+</div>
+<!-- List Item: Offline -->
+<div class="group mx-4 flex flex-col gap-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-4 border border-slate-100 dark:border-slate-800 transition-all opacity-80 hover:opacity-100">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 grayscale">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" data-alt="Portrait of courier Elena" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCTF91GQ1hX63SSj1KYbhp-kVqDVLrdUEod4Drm6sk1JWEj4GVQar-Vgoo5Jaj6RVrSCM_bO3rbGmiCs-dyigXQnMFx7E7DuTR9AJxfQIEpplfrkenMoDriJXlknxaZ8AXSPQaU8XfOPhVFfWfhfhxR3tYwZPAV8oDiEl0-f1a3s_uKLK0L1VoeH-z9sYFgwdgkd-eIn893nIUV6Xydby5ayA8_67JlmKxFZPqbycR2fNXyusdhEp_zBzMRU-jrOjTCkQdGwBZDzok");'>
+</div>
+<div class="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-slate-400 ring-2 ring-white dark:ring-slate-800"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-700 dark:text-slate-300 text-base font-bold leading-normal line-clamp-1">Елена Козлова</p>
+<p class="text-slate-400 dark:text-slate-500 text-sm font-medium leading-normal line-clamp-1">
+                                Была в сети 2ч назад
+                            </p>
+</div>
+</div>
+<div class="shrink-0">
+<span class="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold rounded-full">Офлайн</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Action Button for Sorting/Filtering -->
+<div class="fixed bottom-24 right-4 z-40">
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:bg-primary/90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex justify-between items-center z-50 pb-safe">
+<div class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span class="text-[10px] font-bold">Заказы</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-primary cursor-pointer">
+<span class="material-symbols-outlined text-[24px] font-bold filled">two_wheeler</span>
+<span class="text-[10px] font-bold">Курьеры</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+<span class="text-[10px] font-bold">Меню</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[24px]">bar_chart</span>
+<span class="text-[10px] font-bold">Отчеты</span>
+</div>
+</div>
+</div>
+</body></html>

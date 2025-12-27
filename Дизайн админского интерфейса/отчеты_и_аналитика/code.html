@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Отчеты и аналитика - Вкусняшки</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-dark": "#0b5bb0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1b2631",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for horizontal scrolling sections */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-display min-h-screen flex flex-col overflow-x-hidden transition-colors duration-200">
+<!-- Header -->
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+<div class="flex items-center p-4 justify-between max-w-lg mx-auto w-full">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Отчеты и аналитика</h2>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col max-w-lg mx-auto w-full pb-24">
+<!-- Segmented Buttons (Date Filter) -->
+<div class="px-4 py-4">
+<div class="flex h-10 w-full items-center justify-center rounded-xl bg-slate-200 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-primary-400 text-slate-500 dark:text-slate-400 text-sm font-bold transition-all">
+<span class="truncate">Сегодня</span>
+<input class="invisible w-0" name="date-filter" type="radio" value="Today"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-primary-400 text-slate-500 dark:text-slate-400 text-sm font-bold transition-all">
+<span class="truncate">Неделя</span>
+<input checked="" class="invisible w-0" name="date-filter" type="radio" value="Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-primary dark:has-[:checked]:text-primary-400 text-slate-500 dark:text-slate-400 text-sm font-bold transition-all">
+<span class="truncate">Месяц</span>
+<input class="invisible w-0" name="date-filter" type="radio" value="Month"/>
+</label>
+</div>
+</div>
+<!-- KPI Stats (Horizontal Scroll) -->
+<div class="flex gap-4 px-4 pb-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory">
+<!-- Card 1: Revenue -->
+<div class="snap-start min-w-[160px] flex-1 flex flex-col gap-3 rounded-2xl p-4 bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Выручка</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight">₽ 125,400</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#078838] text-[16px]">trending_up</span>
+<p class="text-[#078838] text-sm font-bold leading-normal">+12%</p>
+</div>
+</div>
+</div>
+<!-- Card 2: Orders -->
+<div class="snap-start min-w-[160px] flex-1 flex flex-col gap-3 rounded-2xl p-4 bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-orange-500/10 text-orange-500">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Заказы</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight">342</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#078838] text-[16px]">trending_up</span>
+<p class="text-[#078838] text-sm font-bold leading-normal">+5%</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Avg Check -->
+<div class="snap-start min-w-[160px] flex-1 flex flex-col gap-3 rounded-2xl p-4 bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-purple-500/10 text-purple-500">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Ср. чек</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight">₽ 1,200</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#e73908] text-[16px]">trending_down</span>
+<p class="text-[#e73908] text-sm font-bold leading-normal">-2%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Revenue Chart -->
+<div class="px-4 py-2">
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-5 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Динамика выручки</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">10 Окт - 17 Окт</p>
+</div>
+<div class="flex items-center gap-1 bg-green-500/10 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[#078838] text-[16px]">arrow_upward</span>
+<p class="text-[#078838] text-xs font-bold">+12%</p>
+</div>
+</div>
+<div class="w-full h-[180px] relative">
+<!-- SVG Chart -->
+<svg class="overflow-visible" fill="none" height="100%" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Gradient Definition -->
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="239" x2="239" y1="0" y2="150">
+<stop stop-color="#137fec" stop-opacity="0.2"></stop>
+<stop offset="1" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area -->
+<path d="M0 109C18.15 109 18.15 21 36.3 21C54.46 21 54.46 41 72.6 41C90.76 41 90.76 93 108.9 93C127.0 93 127.0 33 145.2 33C163.3 33 163.3 101 181.5 101C199.6 101 199.6 61 217.8 61C236 61 236 45 254.1 45C272.3 45 272.3 121 290.4 121C308.6 121 308.6 149 326.7 149C344.9 149 344.9 1 363.0 1C381.2 1 381.2 81 399.3 81C417.5 81 417.5 129 435.6 129C453.8 129 453.8 25 472 25V150H0V109Z" fill="url(#paint0_linear)"></path>
+<!-- Line -->
+<path d="M0 109C18.15 109 18.15 21 36.3 21C54.46 21 54.46 41 72.6 41C90.76 41 90.76 93 108.9 93C127.0 93 127.0 33 145.2 33C163.3 33 163.3 101 181.5 101C199.6 101 199.6 61 217.8 61C236 61 236 45 254.1 45C272.3 45 272.3 121 290.4 121C308.6 121 308.6 149 326.7 149C344.9 149 344.9 1 363.0 1C381.2 1 381.2 81 399.3 81C417.5 81 417.5 129 435.6 129C453.8 129 453.8 25 472 25" stroke="#137fec" stroke-linecap="round" stroke-width="3"></path>
+<!-- Tooltip Example (Static) -->
+<circle cx="254.1" cy="45" fill="#137fec" r="5" stroke="white" stroke-width="2"></circle>
+</svg>
+<!-- Tooltip Card -->
+<div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 bg-slate-900 text-white text-xs py-1 px-2 rounded opacity-0 sm:opacity-100 transition-opacity">
+                        ₽ 42,300
+                    </div>
+</div>
+<div class="flex justify-between mt-4 text-xs font-semibold text-slate-400 dark:text-slate-500">
+<p>Пн</p><p>Вт</p><p>Ср</p><p>Чт</p><p>Пт</p><p>Сб</p><p>Вс</p>
+</div>
+</div>
+</div>
+<!-- Grid Layout for Peak Hours & Customer Insight -->
+<div class="px-4 py-2 grid grid-cols-1 gap-4">
+<!-- Peak Hours -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-5 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="mb-6 flex justify-between items-center">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Пиковые часы</h3>
+<span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">24ч</span>
+</div>
+<div class="grid grid-flow-col gap-3 items-end h-[120px]">
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-t-sm relative group h-[20%]"></div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-t-sm relative group h-[30%]"></div>
+<div class="w-full bg-primary/80 dark:bg-primary/80 rounded-t-sm relative group h-[85%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">84 заказа</div>
+</div>
+<div class="w-full bg-primary dark:bg-primary rounded-t-sm relative group h-[60%]"></div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-t-sm relative group h-[40%]"></div>
+<div class="w-full bg-primary dark:bg-primary rounded-t-sm relative group h-[75%]"></div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-t-sm relative group h-[25%]"></div>
+</div>
+<div class="grid grid-flow-col gap-3 mt-2 text-xs font-medium text-slate-400 text-center">
+<span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span><span>22</span>
+</div>
+</div>
+<!-- Customer Insight (Donut) -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-5 shadow-sm border border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-1">Клиенты</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Новые vs Постоянные</p>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-slate-700 dark:text-slate-300">Постоянные (65%)</span>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 rounded-full bg-orange-400"></span>
+<span class="text-slate-700 dark:text-slate-300">Новые (35%)</span>
+</div>
+</div>
+</div>
+<div class="relative size-24 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-orange-400" cx="18" cy="18" fill="none" r="16" stroke-width="4"></circle>
+<circle class="stroke-primary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="65 100" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-xs font-bold text-slate-900 dark:text-white">342</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Products List -->
+<div class="px-4 py-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-4 px-1">Топ блюд</h3>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="flex items-center p-3 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="size-14 rounded-lg bg-slate-200 overflow-hidden shrink-0">
+<img alt="Pizza" class="w-full h-full object-cover" data-alt="Tasty pepperoni pizza slice on wooden board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWB3w4INXAo5fd8WVlLqr4UQTWry12_Y29u1pBpl_f-RNvdmYWFryA6cwTgWrPZPZoVvBhg6wYel2ZSh7yambCcSxBL_0Ivytw_s_x6e3wnlAL22gT-xNCM75kTunQ7P8EZb7xZ0E4cEmDuAEg-w9uW6kizpRumoP_uU6aIdKJBbu8eWtgFUm4tncvF63o6YSv_SyOPk_5FGU43_qzycFPRlUk4_8Y_aTOiubYBUt5psRgI25_gu4-Q40kpr_4QaQmtb2LOIPWkis"/>
+</div>
+<div class="ml-3 flex-1 min-w-0">
+<p class="text-slate-900 dark:text-white font-bold text-sm truncate">Пицца Пепперони</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">₽ 540</p>
+</div>
+<div class="text-right pl-2">
+<p class="text-slate-900 dark:text-white font-bold text-sm">124</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">заказов</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center p-3 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="size-14 rounded-lg bg-slate-200 overflow-hidden shrink-0">
+<img alt="Burger" class="w-full h-full object-cover" data-alt="Juicy beef burger with cheese and lettuce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQb_9_U158flM_VK_KvZzGdvg_w1UgJsw4CiilQ3LV7ZDEH8gdjx16On2kCZR2M_nuFOR_ZGTIE3Q7RJRom_w3IyRBmtU0psBvLQFV6wsdzpq_CqT7EXs-TeEcp3qZgZK6STsJOBPbez4gM9fU4_qB_fGhKF76kQ_4q4UOusVCkloNvbnvlId87BakrWrZVRpm7B5f6iHep4mocR4f9P5btLSbInSEOAakkLwEPRgj-E3jlzMkis3lVt0SRXNcGi47v6d8UJEK8b0"/>
+</div>
+<div class="ml-3 flex-1 min-w-0">
+<p class="text-slate-900 dark:text-white font-bold text-sm truncate">Чизбургер XL</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">₽ 420</p>
+</div>
+<div class="text-right pl-2">
+<p class="text-slate-900 dark:text-white font-bold text-sm">98</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">заказов</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center p-3 rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="size-14 rounded-lg bg-slate-200 overflow-hidden shrink-0">
+<img alt="Dumplings" class="w-full h-full object-cover" data-alt="Traditional asian dumplings bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2lUrsir122IbhapK6ieMI1P2IWqMekahSESrbq3nssBc1TVM-5x_mkBqG7BIp8MALV2uWpls9NHAtfaTVsKwckNRH3qrRySAvwHUkf0PpIgqtEUMFZYiGMUgANlo3LFv9UX1Q-yC9DYhkhOAitI5FPMLshDxmuh2wG4Z0c56w8VAnAPTqpmnrSm7zC8-xcuucrcfBgWV89J23Uwf4EvWx78fBcxNJM0oqQ0UZdK5v-jym7KDqLjo7vC6bekPkqMA5InyGhohEJiQ"/>
+</div>
+<div class="ml-3 flex-1 min-w-0">
+<p class="text-slate-900 dark:text-white font-bold text-sm truncate">Хинкали</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">₽ 80 / шт</p>
+</div>
+<div class="text-right pl-2">
+<p class="text-slate-900 dark:text-white font-bold text-sm">85</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">заказов</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Export Button -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="flex items-center gap-2 bg-primary text-white pl-4 pr-5 py-3 rounded-full shadow-lg shadow-primary/30 hover:bg-primary-dark transition-colors">
+<span class="material-symbols-outlined">download</span>
+<span class="font-bold text-sm">Экспорт</span>
+</button>
+</div>
+</body></html>

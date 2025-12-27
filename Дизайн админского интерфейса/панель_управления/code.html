@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Панель управления - Вкусняшки</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6d",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102218",
+                        "surface-dark": "#1c3327", // Slightly lighter than background-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scrolls */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display pb-24">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm border-b dark:border-white/5 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="User profile avatar showing a smiling person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQwLq4mE2jhKAaS_2jOlR5vgBqykIbtxNNy9IatKOj3p3TcMR4elcDTLToSviQSUgGB3LKwDXllGQfwZoMTGHJVrkI1GraA3czUsTN-2qs8iSIIQQ0I2jf46jCDT0lTKlM9YW4v7KsyaWm-821Ew6472Y-Cl6kphIFgHfwsc_xpunGpQlWRLFtc5U9rp6ljYaTBjdkxFvpZn2dCycRSo-xXpn3XUXbUkV9zkip6lgg7xJ6a1HRM35clDBAyJW1s3_XXzvW95AvZnA");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-primary rounded-full border-2 border-background-dark"></div>
+</div>
+<div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Вкусняшки</h2>
+<p class="text-[#637588] dark:text-gray-400 text-xs font-medium">Панель админа</p>
+</div>
+</div>
+<button class="relative flex items-center justify-center size-10 rounded-full dark:bg-surface-dark bg-gray-100 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="absolute top-2 right-2 size-2.5 bg-red-500 rounded-full border border-background-dark"></span>
+</button>
+</div>
+<!-- Greeting -->
+<div class="px-4 pt-6 pb-2">
+<h1 class="text-[#111418] dark:text-white text-3xl font-extrabold leading-tight">Привет, Админ 👋</h1>
+<p class="text-[#637588] dark:text-gray-400 text-sm mt-1">Вот статистика за сегодня, 24 Окт.</p>
+</div>
+<!-- Stats Row -->
+<div class="flex gap-3 overflow-x-auto px-4 py-4 no-scrollbar snap-x snap-mandatory">
+<!-- Card 1: Revenue -->
+<div class="snap-center min-w-[160px] flex-1 flex flex-col gap-2 rounded-xl p-4 bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<p class="text-[#637588] dark:text-gray-300 text-xs font-medium uppercase tracking-wider">Выручка</p>
+</div>
+<div class="mt-1">
+<p class="text-[#111418] dark:text-white text-2xl font-extrabold">₽ 45,200</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">trending_up</span>
+<p class="text-primary text-xs font-bold">+15%</p>
+<p class="text-[#637588] dark:text-gray-500 text-xs ml-1">к вчера</p>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Orders -->
+<div class="snap-center min-w-[160px] flex-1 flex flex-col gap-2 rounded-xl p-4 bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-orange-500/20 text-orange-500">
+<span class="material-symbols-outlined text-[20px]">cooking</span>
+</div>
+<p class="text-[#637588] dark:text-gray-300 text-xs font-medium uppercase tracking-wider">В работе</p>
+</div>
+<div class="mt-1">
+<p class="text-[#111418] dark:text-white text-2xl font-extrabold">12</p>
+<div class="flex items-center gap-1 mt-1">
+<p class="text-orange-400 text-xs font-bold">Высокая нагрузка</p>
+</div>
+</div>
+</div>
+<!-- Card 3: New Clients -->
+<div class="snap-center min-w-[160px] flex-1 flex flex-col gap-2 rounded-xl p-4 bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-full bg-blue-500/20 text-blue-500">
+<span class="material-symbols-outlined text-[20px]">group_add</span>
+</div>
+<p class="text-[#637588] dark:text-gray-300 text-xs font-medium uppercase tracking-wider">Клиенты</p>
+</div>
+<div class="mt-1">
+<p class="text-[#111418] dark:text-white text-2xl font-extrabold">+5</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]">trending_up</span>
+<p class="text-primary text-xs font-bold">+2%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sales Chart Section -->
+<div class="px-4 py-2">
+<div class="rounded-xl bg-white dark:bg-surface-dark p-4 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#111418] dark:text-white font-bold text-base">Продажи за неделю</h3>
+<button class="text-primary text-xs font-bold uppercase tracking-wide">Детали</button>
+</div>
+<!-- Simple Bar Chart Visualization -->
+<div class="flex items-end justify-between h-32 gap-2 mt-2">
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[40%] group-hover:bg-primary/40 transition-all relative">
+<!-- Tooltip simulation -->
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">12k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Пн</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[65%] group-hover:bg-primary/40 transition-all relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">24k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Вт</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[50%] group-hover:bg-primary/40 transition-all relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">18k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Ср</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[80%] group-hover:bg-primary/40 transition-all relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">32k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Чт</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[60%] group-hover:bg-primary/40 transition-all relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">22k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Пт</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary rounded-t-sm h-[90%] shadow-[0_0_15px_rgba(19,236,109,0.3)] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg">45k</div>
+</div>
+<span class="text-[10px] text-white font-bold">Сб</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full bg-primary/20 dark:bg-white/10 rounded-t-sm h-[70%] group-hover:bg-primary/40 transition-all relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold py-1 px-2 rounded shadow-lg transition-opacity">28k</div>
+</div>
+<span class="text-[10px] text-gray-400 font-medium">Вс</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Orders Header -->
+<div class="px-4 pt-4 pb-2 flex items-center justify-between">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Текущие заказы</h3>
+<button class="text-primary text-sm font-semibold">Все (12)</button>
+</div>
+<!-- Order Card 1: New -->
+<div class="px-4 pb-3">
+<div class="flex flex-col sm:flex-row items-stretch gap-4 rounded-xl bg-white dark:bg-surface-dark p-4 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden">
+<!-- Status Stripe -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex gap-4 w-full">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Pizza pepperoni with cheese close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCegiG6qNvnae6c3d047N6yes585lyUL6TNQECai7AMQhIUag6G1OmsrPcy3_1CWGESdimhwPstBcHWNPSsVLp8XrBK41PyfJdMEgEquqvAvPxWBT4XZp3YWeofHuUoHJprVUrqrTO0OHJqDSDj7QHKUy7j-cVlQywrTHoCW3pPjUxoMQ6A4FksMVzE_Syg9fB2P2msCOHYCSkgDeq90myscagjt7vR3yQG2Xn7eVi6riukfSE9Qr-LL6LKXJFIEKGPHkHrh8jR4iw");'>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 justify-between gap-1">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Новый</span>
+<span class="text-xs text-gray-500 font-medium">5 мин назад</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Заказ #2301</p>
+</div>
+<p class="text-[#111418] dark:text-white font-bold">₽ 1,250</p>
+</div>
+<p class="text-[#637588] dark:text-gray-400 text-xs font-medium line-clamp-1">Пицца Пепперони, Кола, Фри...</p>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-9 bg-primary text-[#102218] text-sm font-bold shadow-[0_0_10px_rgba(19,236,109,0.2)]">
+                            Принять
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 2: Preparing -->
+<div class="px-4 pb-3">
+<div class="flex flex-col sm:flex-row items-stretch gap-4 rounded-xl bg-white dark:bg-surface-dark p-4 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden">
+<!-- Status Stripe -->
+<div class="absolute top-0 left-0 w-1 h-full bg-orange-400"></div>
+<div class="flex gap-4 w-full">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Sushi set XL on a black plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKPYF62c6drbKVdZoTJiLAxNTpTfhyUcHlkq20DBHO5nWf7Ji6hMj8cWV1TkydsehOUZKiTQT5O4yIhn8olE3i88bMqRwtiqVCcno0i1sI3SnuzjnNtmkMBChyLMCFVaxnVtyVHvw3Ch56MM-8bIk9_duIC5XeGH89RZbUf9td88UUulC04FGMAm2Tp2o9uQFJD_KuoelV-gRSP14PsmtPqJjdvyM8mz7RejfTE-48um-0liHxieTtHG-fih2VfyUT-A-AxDLp2D4");'>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 justify-between gap-1">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-orange-400/20 text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Готовится</span>
+<span class="text-xs text-gray-500 font-medium">12 мин</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Заказ #2300</p>
+</div>
+<p class="text-[#111418] dark:text-white font-bold">₽ 3,400</p>
+</div>
+<p class="text-[#637588] dark:text-gray-400 text-xs font-medium line-clamp-1">Суши сет XL, Васаби, Сок...</p>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-9 bg-[#23352c] border border-primary/30 text-primary text-sm font-bold">
+                            Готово
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 3: New -->
+<div class="px-4 pb-3">
+<div class="flex flex-col sm:flex-row items-stretch gap-4 rounded-xl bg-white dark:bg-surface-dark p-4 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden">
+<!-- Status Stripe -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex gap-4 w-full">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Beef burger with fries on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYnNiYSgvUbuEWd2_jQmWxaTDz6NQ4eG0BiiAfh_9B2SwfMfzkRR_bL3nm35afU2VqUliXm8wWZzDvfc7KqFF5HCIrTRJDNRC6YepPf0D9_PeBwCS_BHeGZZnuZQyY8abu_3TcUC4M37GS6pQbYPc0tRDKy_kCfozUa146jbJhb8hAbl6DKrhC-1tr3c0qXlmtxQLfP0PEOrO5gfBjLQw1-mMoQJL51nsa6e1WOFH4U4Z38kAAefowlmUUPDcliHL2vndlQ86ksYs");'>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 justify-between gap-1">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Новый</span>
+<span class="text-xs text-gray-500 font-medium">1 мин назад</span>
+</div>
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight">Заказ #2302</p>
+</div>
+<p class="text-[#111418] dark:text-white font-bold">₽ 890</p>
+</div>
+<p class="text-[#637588] dark:text-gray-400 text-xs font-medium line-clamp-1">Бургер Классика, Картофель...</p>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-9 bg-primary text-[#102218] text-sm font-bold shadow-[0_0_10px_rgba(19,236,109,0.2)]">
+                            Принять
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="px-4 py-4">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold mb-3">События</h3>
+<div class="flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<div class="size-8 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-blue-500 text-sm">star</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-medium">Новый отзыв 5★</p>
+<p class="text-[#637588] dark:text-gray-500 text-xs">Александр К. • 2 часа назад</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="size-8 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-purple-500 text-sm">edit</span>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-sm font-medium">Меню обновлено</p>
+<p class="text-[#637588] dark:text-gray-500 text-xs">Добавлен "Суп Том Ям" • 5 часов назад</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-background-dark/95 backdrop-blur-md border-t border-gray-200 dark:border-white/5 pb-safe z-50">
+<div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+<button class="flex flex-col items-center justify-center w-full h-full text-primary gap-1">
+<span class="material-symbols-outlined filled">grid_view</span>
+<span class="text-[10px] font-medium">Главная</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-white transition-colors gap-1">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Заказы</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-white transition-colors gap-1">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-medium">Меню</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-white transition-colors gap-1">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Клиенты</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-white transition-colors gap-1">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Настройки</span>
+</button>
+</div>
+</nav>
+<!-- Safe Area Spacing for iPhone Home Indicator -->
+<div class="h-6"></div>
+</body></html>

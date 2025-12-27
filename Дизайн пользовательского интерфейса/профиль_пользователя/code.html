@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Профиль пользователя - Вкусняшки</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c2632",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md pt-safe-top">
+<div class="flex items-center justify-between p-4 pb-2">
+<div class="w-12"></div> <!-- Spacer for centering -->
+<h2 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight tracking-[-0.015em] flex-1 text-center">
+                    Профиль
+                </h2>
+<div class="w-12 flex justify-end">
+<!-- Optional Edit/Settings Icon could go here -->
+</div>
+</div>
+</header>
+<!-- ProfileHeader -->
+<section class="flex flex-col items-center pt-4 pb-6 px-4">
+<div class="relative mb-4 group cursor-pointer">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-28 w-28 ring-4 ring-white dark:ring-surface-dark shadow-lg" data-alt="Portrait of user Anna Ivanova smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_-I-dgKs5oq8ASof5XefKjloP2g-wYQ4ryYMYo47ULQS-lvSK-TAaEGImkthUGNenp7-M53R3PKPePecffcwW0PTnT9VASJAT9S6piIb-gMNM5ORCLbj8ANcuwg9SXMBa4s1oQ4iNF48axe5w7hHzPAj38VaybncRG7xOyxIb-ON-rDxjPUYqCqIwKmZp8-CKNpg2GfUAG36Omi4orOvjMeaBGZCKlWmFcVr6fIuDCNOkoy-i8yCSbCzpfSUS_YJygWN5uwOcHHQ");'>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full border-2 border-white dark:border-background-dark shadow-sm">
+<span class="material-symbols-outlined text-[16px] leading-none">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1">
+<h1 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight tracking-tight text-center">
+                    Анна Иванова
+                </h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal text-center">
+                    +7 900 123 45 67
+                </p>
+</div>
+</section>
+<!-- ProfileStats -->
+<section class="px-4 mb-6">
+<div class="grid grid-cols-3 gap-3">
+<!-- Stat 1 -->
+<div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<span class="text-primary text-2xl font-extrabold leading-none mb-1">350</span>
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">Бонусов</span>
+</div>
+<!-- Stat 2 -->
+<div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<span class="text-slate-900 dark:text-white text-2xl font-extrabold leading-none mb-1">5</span>
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">Любимых</span>
+</div>
+<!-- Stat 3 -->
+<div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800">
+<span class="text-primary text-lg font-bold leading-none mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">diamond</span>
+                        Gourmet
+                    </span>
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">Статус</span>
+</div>
+</div>
+</section>
+<!-- Menu Group 1: Personal -->
+<section class="px-4 mb-6">
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider px-2 mb-2 ml-1">
+                Личное
+            </h3>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800">
+<!-- List Item: Orders -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+<div class="flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/20 text-primary shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Мои заказы</p>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<!-- List Item: Addresses -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+<div class="flex items-center justify-center rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-500 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Адреса доставки</p>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<!-- List Item: Payment -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+<div class="flex items-center justify-center rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Способы оплаты</p>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<!-- List Item: Promos -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center justify-center rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">local_offer</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Промокоды</p>
+<div class="flex items-center gap-2">
+<span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+</button>
+</div>
+</section>
+<!-- Menu Group 2: Settings -->
+<section class="px-4 mb-6">
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider px-2 mb-2 ml-1">
+                Настройки
+            </h3>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800">
+<!-- List Item: Notifications -->
+<div class="flex items-center gap-4 p-4 w-full border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+<div class="flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Уведомления</p>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- List Item: Dietary -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0">
+<div class="flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Предпочтения в еде</p>
+<span class="text-slate-400 text-sm mr-1">Вегетарианское</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<!-- List Item: Language -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Язык</p>
+<span class="text-slate-400 text-sm mr-1">Русский</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Menu Group 3: Support & Exit -->
+<section class="px-4 mb-8">
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800">
+<!-- List Item: Support -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-700/50">
+<div class="flex items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-900/20 text-indigo-500 shrink-0 w-10 h-10">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-slate-900 dark:text-white text-base font-medium">Поддержка</p>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<!-- List Item: Logout -->
+<button class="flex items-center gap-4 p-4 w-full hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group">
+<div class="flex items-center justify-center rounded-xl bg-red-50 dark:bg-red-900/20 text-red-500 shrink-0 w-10 h-10 group-hover:bg-red-100 dark:group-hover:bg-red-900/30 transition-colors">
+<span class="material-symbols-outlined">logout</span>
+</div>
+<div class="flex flex-1 items-center justify-between">
+<p class="text-red-500 text-base font-medium">Выйти из аккаунта</p>
+</div>
+</button>
+</div>
+<p class="text-center text-slate-400 text-xs mt-6">
+                Версия приложения 2.4.0
+            </p>
+</section>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 pb-safe-bottom z-50">
+<div class="flex justify-around items-center h-16 max-w-md mx-auto">
+<!-- Nav Item: Menu -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">restaurant</span>
+<span class="text-[10px] font-medium">Меню</span>
+</button>
+<!-- Nav Item: Cart -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-slate-400 hover:text-primary transition-colors relative">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute -top-1 -right-2 bg-primary text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white dark:border-surface-dark">3</span>
+</div>
+<span class="text-[10px] font-medium">Корзина</span>
+</button>
+<!-- Nav Item: Profile (Active) -->
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-primary">
+<span class="material-symbols-outlined text-2xl filled">person</span>
+<span class="text-[10px] font-bold">Профиль</span>
+</button>
+</div>
+</nav>
+<!-- Additional padding for bottom nav safety -->
+<style>
+        .pb-safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        .pt-safe-top {
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+        /* Filled icon variant override for active state if needed */
+        .material-symbols-outlined.filled {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</body></html>
